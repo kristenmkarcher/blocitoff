@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   authenticated :user do
     root "users#show", as: :user_root
-    resources :users, only: [] do
+    resources :users, only: [:show] do
     resources :items, only: [:create]  do
     put :complete
     put :archive
