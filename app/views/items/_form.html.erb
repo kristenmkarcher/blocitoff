@@ -1,0 +1,9 @@
+<h3>Add a New To-Do Item</h3>
+<%= form_for [current_user, Item.new] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter name of item" %>
+
+  <div class="form-group">
+    <%= f.submit "Create", class: 'btn btn-success' %>
+  </div>
+<% end %>
