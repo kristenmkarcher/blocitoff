@@ -14,6 +14,19 @@ class ItemsController < ApplicationController
   redirect_to user_path(current_user)
   end
 
+  def destroy
+    @user = current_user
+    @item = @user.items.find(params[:id])
+
+    if @item.destroy
+      flash[:notice] = "Task completed"
+    else
+      flash[:notice] = "There was an error completing the task. Please try again."
+    end
+
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def item_params
